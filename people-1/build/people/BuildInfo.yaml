@@ -1,0 +1,18 @@
+---
+compiled_package_info:
+  package_name: people
+  address_alias_instantiation:
+    std: "00000000000000000000000000000001"
+  source_digest: 82775F4275F7D830A85CB782DE8FE91AC36DB3B470B36C088601DAE92DCCAB8B
+  build_flags:
+    dev_mode: true
+    test_mode: true
+    generate_docs: false
+    generate_abis: false
+    install_dir: ~
+    force_recompilation: false
+    additional_named_addresses: {}
+    architecture: ~
+    fetch_deps_only: false
+dependencies:
+  - MoveStdlib
