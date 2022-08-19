@@ -2,38 +2,46 @@ module 0x42::SocialNetwork{
 
 	use std::vector;
 
-	struct Friends has key {
+	struct Friends has store, key, drop {
 		people: vector<Person>
 	}
 
-	struct Person has store, drop, copy {
+	struct Person has store, key, drop, copy {
 		name: vector<u8>,
 		age: u8 
 	}
 
-	public fun create_person(_name: vector<u8>, _age: u8): Person {
-		let person = Person { 
-			name: _name,
-			age: _age,
+	public fun create_friend(myFriend: Person, friends: &mut Friends): Person {
+		let newFriend = Person { 
+			name: myFriend.name,
+			age: myFriend.age
 		};
 
-		return person
+		add_friend(newFriend, friends);
+
+		return newFriend 
 	}
 
-	public fun add_friend(friends: &mut Friends, _person: Person) {
+	public fun add_friend(_person: Person, friends: &mut Friends) {
 		vector::push_back(&mut friends.people, _person);
     }
 
-	public fun get_friends(): vector<Person> acquires Friends{
-        borrow_global_mut<Friends>(@0x42).people
-	}
 
     #[test]
-    fun test_create() {
-		let person = create_person(b"Ricard\n", 31);
-		assert!(create_person(b"Ricard\n", 31) == person, 0);
-    }
+	fun test_create_friend() {
+		let richard = Person {
+			name: b"Richard",
+			age: 31,
+		};
 
-	fun test_add_friend(){
+		let friends = Friends {
+			people: (vector[richard]),
+		};
+
+
+		let createdFriend = create_friend(richard, &mut friends);
+		assert!(createdFriend.name == b"Richard", 0);
 	}
+
+
 }
