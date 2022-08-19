@@ -1,4 +1,4 @@
-module 0x42::People {
+module 0x42::SocialNetwork{
 
 	use std::vector;
 
