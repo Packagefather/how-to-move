@@ -21,8 +21,14 @@ module 0x42::Move{
 	}
 
 	#[test]
-	fun test_abourt() {
+	fun test_abort() {
 		let x = must_be_odd(1);
 		assert!(x == true, 0);
+	}
+
+	#[test]
+	fun test_any_type(){
+		let x = any_type();
+		assert!(x == 69, 0);
 	}
 }
