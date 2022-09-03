@@ -1,5 +1,5 @@
 [package]
-name = "people"
+name = "while-loop-7"
 version = "0.0.0"
 
 [dependencies]
@@ -8,4 +8,3 @@ MoveNursery = { git = "https://github.com/move-language/move.git", subdir = "lan
 
 [addresses]
 std =  "0x1"
-
