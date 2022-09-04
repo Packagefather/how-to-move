@@ -1,5 +1,5 @@
 [package]
-name = "people"
+name = "generics-8"
 version = "0.0.0"
 
 [dependencies]
